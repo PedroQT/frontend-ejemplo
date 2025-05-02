@@ -1,9 +1,47 @@
-version: '3.8'
-
 services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=springboot_personal'
+      - 'POSTGRES_PASSWORD=a1b2c3d4'
+      - 'POSTGRES_USER=devdb'
+    ports:
+      - "5432:5432"
+    networks:
+      - red-backend-app
+
   angular-frontend:
     build: .
+    depends_on:
+      - demo
     container_name: angular-app
     ports:
       - "80:80"
     restart: always
+    networks:
+      - red-backend-app
+
+  demo:
+    image: 'pedrodqt/demo:latest'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/springboot_personal
+      DB_USERNAME: devdb
+      DB_PASSWORD: a1b2c3d4
+      JPA_DDL: create-drop
+      SERVER_PORT: 8080
+      SHOW_SQL: true
+      TIME_ZONE: America/Bogota
+      LOCALE: es_CO
+      MAX_FILE_SIZE: 10MB
+      MAX_REQUEST_SIZE: 10MB
+      LOGGING_LEVEL_WEB: DEBUG
+      LOGGING_LEVEL_HIBERNATE_SQL: DEBUG
+    networks:
+      - red-backend-app
+networks:
+  red-backend-app:
+    driver: bridge
