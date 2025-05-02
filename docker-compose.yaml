@@ -11,7 +11,7 @@ services:
       - red-backend-app
 
   angular-frontend:
-    build: .
+    image: 'pedrodqt/demo-app:latest'
     depends_on:
       - demo
     container_name: angular-app
@@ -33,7 +33,7 @@ services:
       DB_PASSWORD: a1b2c3d4
       JPA_DDL: create-drop
       SERVER_PORT: 8080
-      SHOW_SQL: true
+      SHOW_SQL: 'true'
       TIME_ZONE: America/Bogota
       LOCALE: es_CO
       MAX_FILE_SIZE: 10MB
