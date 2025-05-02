@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  angular-frontend:
+    build: .
+    container_name: angular-app
+    ports:
+      - "80:80"
+    restart: always

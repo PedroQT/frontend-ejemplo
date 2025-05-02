@@ -1,0 +1,30 @@
+/* Estilo personalizado para el navbar */
+.navbar {
+  background-color: #004d40; /* Verde oscuro */
+  padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
+.navbar-brand:hover {
+  color: #81c784 !important; /* Verde claro al pasar el mouse */
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #81c784 !important; /* Verde claro para resaltar */
+}
+
+.bi {
+  margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+}

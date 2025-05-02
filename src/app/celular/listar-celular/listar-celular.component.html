@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 class="titulo">Lista de Celulares</h2>
+  <table class="tabla">
+    <thead>
+    <tr>
+      <th>Código</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let celular of celulares">
+      <td>{{ celular.codigo_cel }}</td>
+      <td>{{ celular.marca }}</td>
+      <td>{{ celular.modelo }}</td>
+      <td>{{ celular.precio | currency:'COP' }}</td>
+      <td class="acciones">
+        <button (click)="verDeralleCelular(celular.codigo_cel)" class="btn btn-ver">Ver</button>
+        <button (click)="editarCelular(celular.codigo_cel)" class="btn btn-editar">Editar</button>
+        <button (click)="eliminarCelular(celular.codigo_cel)" class="btn btn-eliminar">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
