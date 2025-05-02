@@ -1,3 +1,4 @@
+##este es para el docker local
 services:
   postgres:
     image: 'postgres:latest'
