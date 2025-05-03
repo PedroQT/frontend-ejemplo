@@ -11,7 +11,7 @@ COPY dist/demofrontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expone el puerto
-EXPOSE 80
+EXPOSE 81
 
 # Comando por defecto
 CMD ["nginx", "-g", "daemon off;"]
