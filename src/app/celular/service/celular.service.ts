@@ -7,7 +7,7 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CelularService {
-  private baseUrl: string = "/api/v1/demo/celulares";
+  private baseUrl = '/api/v1/demo/celulares';
 
   constructor(private httpClient: HttpClient) { }
 
